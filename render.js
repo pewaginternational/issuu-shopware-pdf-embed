@@ -15,7 +15,7 @@ function renderIssuuEmbeds(data) {
         {
             language: 'en',
             headline: 'Product Catalogue',
-            paths: ['au', 'in', 'in', 'uk']
+            paths: ['au', 'in', 'uk']
         },
         {
             language: 'us',
