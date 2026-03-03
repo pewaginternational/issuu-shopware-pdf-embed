@@ -107,14 +107,12 @@ function renderIssuuEmbeds(data) {
         return acc;
     }, {});
 
-    function getHeadlineByPath(defaultLang = 'en') {
+    function getHeadlineByPath() {
         const segment = window.location.pathname
             .split('/')
             .filter(Boolean)[0];
 
-        return flatHeadlines[segment]
-            || headlineLocalization.find(l => l.language === defaultLang)?.headline
-            || '';
+        return flatHeadlines[segment] || flatHeadlines['au'];
     }
 
 
