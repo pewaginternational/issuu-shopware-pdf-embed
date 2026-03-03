@@ -1,4 +1,4 @@
-console.log("render.js running");
+//console.log("render.js running");
 
 function renderIssuuEmbeds(data) {
 
@@ -47,31 +47,31 @@ function renderIssuuEmbeds(data) {
 
         pair.innerHTML = `
             <button class="issuu_embed_button" data-id="${index}">
-            ${item.name}
-            <svg xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="7"
-                    viewBox="0 0 12 7"
-                    fill="none"
-                    class="issuu_embed_arrow"
-                    aria-hidden="true">
-            <path d="M1 1c1.575 1.371 4.725 4.5 4.725 4.5S8.875 2.629 10.45 1"
-                stroke="#E20031"
-                stroke-width="2"
-                fill="none"></path>
-            </svg>
+                ${item.name}
+                <svg xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="7"
+                        viewBox="0 0 12 7"
+                        fill="none"
+                        class="issuu_embed_arrow"
+                        aria-hidden="true">
+                <path d="M1 1c1.575 1.371 4.725 4.5 4.725 4.5S8.875 2.629 10.45 1"
+                    stroke="#E20031"
+                    stroke-width="2"
+                    fill="none"></path>
+                </svg>
             </button>
 
             <div class="issuu_embed_content" data-id="${index}" hidden>
-            <div style="position:relative;padding-top:max(60%,326px);height:0;width:100%">
-                <iframe
-                src="${item.issuu}"
-                allow="clipboard-write"
-                sandbox="allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms"
-                allowfullscreen
-                style="position:absolute;border:none;width:100%;height:100%;inset:0">
-                </iframe>
-            </div>
+                <div style="position:relative;padding-top:max(60%,326px);height:0;width:100%">
+                    <iframe
+                    src="${item.issuu}"
+                    allow="clipboard-write"
+                    sandbox="allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms"
+                    allowfullscreen
+                    style="position:absolute;border:none;width:100%;height:100%;inset:0">
+                    </iframe>
+                </div>
             </div>
         `;
 
@@ -90,10 +90,6 @@ buttons.forEach((button, index) => {
         //console.log("click");
 
         if (!button) return;
-        
-        //const id = button.getAttribute('data-id');
-        //console.log("id: ", id);
-        //if (!id) return;
         
         const content = document.querySelector(
             '.issuu_embed_content[data-id="' + index + '"]'
