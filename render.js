@@ -6,10 +6,122 @@ function renderIssuuEmbeds(data) {
 
     if (!wrapper || !Array.isArray(data)) return;
 
+    
+
+    //HEADLINE LANGUAGE DEFINITION
+
+    //structured headline array for easy maintenance
+    const headlineLocalization = [
+        {
+            language: 'en',
+            headline: 'Product Catalogue',
+            paths: ['au', 'in', 'in', 'uk']
+        },
+        {
+            language: 'us',
+            headline: 'Product Catalog and Fit Guide',
+            paths: ['us', 'ca']
+        },
+        {
+            language: 'de',
+            headline: 'Produktkataloge',
+            paths: ['at', 'de', 'ch']
+        },
+        {
+            language: 'es',
+            headline: 'Catálogo de productos',
+            paths: ['co', 'mx']
+        },
+        {
+            language: 'pt',
+            headline: 'Catálogo de produtos',
+            paths: ['br', 'pt']
+        },
+        {
+            language: 'cz',
+            headline: 'Katalog produktů',
+            paths: ['cz']
+        },
+        {
+            language: 'fi',
+            headline: 'Tuoteluettelo',
+            paths: ['fi']
+        },
+        {
+            language: 'fr',
+            headline: 'Catalogue des produits',
+            paths: ['fr']
+        },
+        {
+            language: 'it',
+            headline: 'Catalogo dei prodotti',
+            paths: ['it']
+        },
+        {
+            language: 'nl',
+            headline: 'Productcatalogus',
+            paths: ['nl']
+        },
+        {
+            language: 'no',
+            headline: 'Produktkatalog',
+            paths: ['no']
+        },
+        {
+            language: 'pl',
+            headline: 'Product Catalogue',
+            paths: ['pl']
+        },
+        {
+            language: 'ro',
+            headline: 'Catalog de produse',
+            paths: ['ro']
+        },
+        {
+            language: 'ru',
+            headline: 'Каталог продукции',
+            paths: ['ru']
+        },
+        {
+            language: 'sk',
+            headline: 'Katalóg produktov',
+            paths: ['sk']
+        },
+        {
+            language: 'se',
+            headline: 'Produktkataloger',
+            paths: ['se']
+        },
+        {
+            language: 'ua',
+            headline: 'Каталог продукції',
+            paths: ['ua']
+        },
+    ];
+
+    //flat array generation for a cleaner loop
+    const flatHeadlines = headlineLocalization.reduce((acc, entry) => {
+        entry.paths.forEach(path => {
+            acc[path] = entry.headline;
+        });
+        return acc;
+    }, {});
+
+    function getHeadlineByPath(defaultLang = 'en') {
+        const segment = window.location.pathname
+            .split('/')
+            .filter(Boolean)[0];
+
+        return flatHeadlines[segment]
+            || headlineLocalization.find(l => l.language === defaultLang)?.headline
+            || '';
+    }
+
+
     //HEADLINE
     const headline = document.createElement('div');
     headline.className = 'ap-download-center-catalogue__title h5';
-    headline.textContent = 'Product Catalogue';
+    headline.textContent = getHeadlineByPath();
     wrapper.appendChild(headline);
 
     //STYLESHEET
