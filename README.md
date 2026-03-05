@@ -60,11 +60,6 @@ __Warning:__ If you purge the cache too often, you will be throttled very quickl
 
 ---
 
-### Future improvement 
-Ideally, the long term implementation would utilise direct embedding of the script in the Shopware <head>, as described [here](https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-javascript-as-script-tag.html). A versioning approach could be used to avoid caching issues and simply bumping the version when updating the script. Unfortunately, due to slow reaction to merge requests and current limited access to production, this approach is not viable and practical for our current needs.
-
----
-
 ## Languages
 
 To keep the element headline in line with the current language structure, an automated language logic has been implemented at the __HEADLINE__ section of [render.js](render.js). To edit the language info simply update the array stored in __const headlineLocalization__ (see Example structure below).
