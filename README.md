@@ -7,7 +7,7 @@ __Warning:__ This repository, as well as the script from [render.js](render.js),
 ## Quick usage
 1. Copy the markup from [example.html](example.html)
 2. Insert it into Shopware CMS (Custom HTML block)
-3. Replace ISSUU_EMBEDS data
+3. Replace __issuu_embeds__ data
 4. Done
 
 ## Implementation 
@@ -16,10 +16,10 @@ Please use [example.html](example.html) as a template for implementation.
 Due to slow agency response times and limited access we currently have to the Shopware source code, it is recommended that the script is embedded using the __Custom HTML CMS block__ at each site where issuu embeds are required __manually__.
 
 ### CMS embeds
-The script is hosted at [https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1.0.5/render.js](https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1.0.5/render.js) and should always be embedded using __@v1.0.5__ tag in production, as shown below:
+The script is hosted at [https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@latest/render.js](https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@latest/render.js) and should always be embedded using __@latest__ tag in production, as shown below:
 
 ```HTML
-<script src="https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1.0.5/render.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@latest/render.js"></script>
 ```
 
 It is important that the script is always inserted __after__ the anchor div and data definitions (as seen in [example.html](example.html)), to ensure that the anchor and data are available when the script executes.
@@ -29,38 +29,20 @@ It is important that the script is always inserted __after__ the anchor div and 
 ### Deploying script changes 
 
 #### Testing
-When making changes to the [render.js](render.js), always test them first (ideally in a staging environment). To avoid caching issues, you can use the __commit hash__ as your tag instead of __@v1.0.5__. That way you will always be able to preview the exact version of the script you intend to test:
+When making changes to the [render.js](render.js), always test them first (ideally in a staging environment). To avoid caching issues, you can use the __commit hash__ as your tag instead of __@latest__. That way you will always be able to preview the exact version of the script you intend to test:
 
 ```HTML
 <script src="https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@[COMMIT_HASH]/render.js"></script>
 ```
 ---
 
-#### Production implementation 
+#### Production implementation - Cache purge
 
-##### Step 1: Move the @v1.0.5 tag to the latest commit
-
-In production, keep the __@v1.0.5__ version to avoid the need for manual updates across the CMS. Once you have thoroughly tested the changes and confirmed desired behavior, you can move the __@v1.0.5__ tag to the latest/appropriate commit in Git Bash:
-
-__Move to latest commit:__
-```bash
-git tag -f v1
-git push origin v1 --force
-```
-
-__Move to specific commit:__ 
-```bash
-git tag -f v1 <commit_hash>
-git push origin v1 --force
-```
-__WARNING:__ While the changes in the __@v1.0.5__ tag will only be visible once the old cached version clears (7 days or after a manual purge), moving the tag too frequently can require multiple cache purges, which may result in purge throttling and leave an unintended version cached in production. __Make sure to thoroughly test any changes and only move the__ _@v1.0.5_ __tag once you are sure you are ready for production deployment.__
-
-##### Step 2: Cache purge
-Once you have moved the __@v1.0.5__ tag to the appropriate commit, you can __purge the cache__ of the @v1.0.5 version on the below url:
+Once you have tested the implementation thoroughly via __commit hash implementation__, you can __purge the cache__ of the @latest version on the below url:
 
 [https://www.jsdelivr.com/tools/purge](https://www.jsdelivr.com/tools/purge)
 
-This will update the logic everywhere the __@v1.0.5__-tagged script appears.
+This will update the logic everywhere the __@latest__-tagged script appears.
 
 __Warning:__ If you purge the cache too often, you will be throttled very quickly. __It is therefore recommended that you do not use the purge tool more than once a day__. You can always test changes using the __commit hash__ approach explained above. __Always make sure you have thoroughly tested the changes before utilizing the purge tool.__
 
