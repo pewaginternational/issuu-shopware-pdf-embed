@@ -1,16 +1,19 @@
 //console.log("render.js running");
 
+/*-------------
+/ RENDER LOGIC
+-------------*/
 function renderIssuuEmbeds(data) {
 
     const wrapper = document.querySelector('.issuu_embed_wrapper');
 
-    if (!wrapper || !Array.isArray(data)) return;
+    if (!wrapper || !Array.isArray(data)) return;    
 
-    
+    /*---------
+    / HEADLINE
+    ---------*/
 
-    //HEADLINE LANGUAGE DEFINITION
-
-    //structured headline array for easy maintenance
+    //structured headline-language array for easy maintenance
     const headlineLocalization = [
         {
             language: 'en',
@@ -107,22 +110,26 @@ function renderIssuuEmbeds(data) {
         return acc;
     }, {});
 
+    //headline retreival function
     function getHeadlineByPath() {
         const segment = window.location.pathname
-            .split('/')
-            .filter(Boolean)[0];
+            .split('/') //split the path by '/'
+            .filter(Boolean)[0]; //returns the first chunk, excluding empty strings
 
         return flatHeadlines[segment] || flatHeadlines['au'];
     }
 
 
-    //HEADLINE
+    //append the headline to the anchor
     const headline = document.createElement('div');
     headline.className = 'ap-download-center-catalogue__title h5';
     headline.textContent = getHeadlineByPath();
     wrapper.appendChild(headline);
 
-    //STYLESHEET
+
+    /*-----------
+    / STYLESHEET
+    -----------*/
     const style = document.createElement('style');
     style.textContent = `
         .issuu_embed_pair {
@@ -150,7 +157,9 @@ function renderIssuuEmbeds(data) {
     `;
     wrapper.appendChild(style);
 
-    //EMBEDS
+    /*-------
+    / EMBEDS
+    --------*/
     data.forEach((item, index) => {
         const pair = document.createElement('div');
         pair.className = 'issuu_embed_pair';
@@ -191,7 +200,9 @@ function renderIssuuEmbeds(data) {
 
 renderIssuuEmbeds(ISSUU_EMBEDS);
 
-//TOGGLE BEHAVIOR
+/*---------------
+/ TOGGLE BEHAVIOR
+----------------*/
 const buttons = document.querySelectorAll('.issuu_embed_button');
 
 buttons.forEach((button, index) => {
