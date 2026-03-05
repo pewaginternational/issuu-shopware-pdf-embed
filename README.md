@@ -10,6 +10,9 @@ __Warning:__ This repository, as well as the script from [render.js](render.js),
 3. Replace ISSUU_EMBEDS data
 4. Done
 
+## Current version
+1.0.3
+
 ## Implementation 
 
 Please use [example.html](example.html) as a template for implementation.
