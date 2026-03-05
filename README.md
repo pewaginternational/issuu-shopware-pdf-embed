@@ -7,7 +7,7 @@ __Warning:__ This repository, as well as the script from [render.js](render.js),
 ## Implementation 
 
 Please use [example.html](example.html) as a template for implementation.
-Due to slow Apollon response times and limited access we currently have to the Shopware source code, it is recommended that the script is embedded using the __Custom HTML CMS block__ at each site where issuu embeds are required __manually__.
+Due to slow agency response times and limited access we currently have to the Shopware source code, it is recommended that the script is embedded using the __Custom HTML CMS block__ at each site where issuu embeds are required __manually__.
 
 ### CMS embeds
 The script is hosted at [https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1/render.js](https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@latest/v1.js) and should always be embedded using __@v1__ tag in production, as shown below:
