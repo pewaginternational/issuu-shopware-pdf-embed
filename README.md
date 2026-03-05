@@ -53,7 +53,7 @@ __Move to specific commit:__
 git tag -f v1 <commit_hash>
 git push origin v1 --force
 ```
-__WARNING:__ While the changes in the __@v1__ tag will only be visible once the old cached version clears (7 days or after a manual purge), moving the tag too frequently can require multiple cache purges, which may result in purge throttling and leave an unintended version cached in production __Make sure to thoroughly test any changes and only move the__ _@v1_ __tag once you are sure you are ready for production deployment.__
+__WARNING:__ While the changes in the __@v1__ tag will only be visible once the old cached version clears (7 days or after a manual purge), moving the tag too frequently can require multiple cache purges, which may result in purge throttling and leave an unintended version cached in production. __Make sure to thoroughly test any changes and only move the__ _@v1_ __tag once you are sure you are ready for production deployment.__
 
 ##### Step 2: Cache purge
 Once you have moved the __@v1__ tag to the appropriate commit, you can __purge the cache__ of the @v1 version on the below url:

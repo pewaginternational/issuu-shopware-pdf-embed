@@ -198,37 +198,31 @@ function renderIssuuEmbeds(data) {
     });
 }
 
-renderIssuuEmbeds(ISSUU_EMBEDS);
+renderIssuuEmbeds(issuu_embeds);
 
 /*---------------
 / TOGGLE BEHAVIOR
 ----------------*/
-const buttons = document.querySelectorAll('.issuu_embed_button');
+const wrapper = document.querySelector('.issuu_embed_wrapper');
 
-buttons.forEach((button, index) => {
-
-    button.addEventListener('click', function () {
-        //console.log("click");
-
-        if (!button) return;
-        
-        const content = document.querySelector(
-            '.issuu_embed_content[data-id="' + index + '"]'
-        );
-        //console.log("content: ", content);
-        
-        const arrow = button.querySelector(
-            '.issuu_embed_arrow'
-        );
-        //console.log("arrow: ", arrow);
-        
-        if(arrow){
-            arrow.classList.toggle("open");
-        }
+wrapper.addEventListener('click', (event) => {
+    // Find the closest button to the click (in case they click the SVG inside)
+    const button = event.target.closest('.issuu_embed_button');
     
-        if (!content) return;
-    
+    // If the click wasn't on a toggle button, ignore it
+    if (!button) return;
+
+    const index = button.getAttribute('data-id');
+    const content = wrapper.querySelector(`.issuu_embed_content[data-id="${index}"]`);
+    const arrow = button.querySelector('.issuu_embed_arrow');
+
+    // Toggle Arrow
+    if (arrow) {
+        arrow.classList.toggle("open");
+    }
+
+    // Toggle Content
+    if (content) {
         content.hidden = !content.hidden;
-    });
-
+    }
 });
