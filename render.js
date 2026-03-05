@@ -1,4 +1,4 @@
-//console.log("render.js running");
+console.log("render.js running");
 
 /*-------------
 / RENDER LOGIC
