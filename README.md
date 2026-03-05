@@ -4,13 +4,19 @@ This script serves as a centralised render logic for Issuu-hosted catalogues on 
 
 __Warning:__ This repository, as well as the script from [render.js](render.js), embedded on shop.pewag.com is visible to the public. __Do not__ insert any potentially sensitive information in any part of this repository.
 
+## Quick usage
+1. Copy the markup from [example.html](example.html)
+2. Insert it into Shopware CMS (Custom HTML block)
+3. Replace ISSUU_EMBEDS data
+4. Done
+
 ## Implementation 
 
 Please use [example.html](example.html) as a template for implementation.
 Due to slow agency response times and limited access we currently have to the Shopware source code, it is recommended that the script is embedded using the __Custom HTML CMS block__ at each site where issuu embeds are required __manually__.
 
 ### CMS embeds
-The script is hosted at [https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1/render.js](https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@latest/v1.js) and should always be embedded using __@v1__ tag in production, as shown below:
+The script is hosted at [https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1/render.js](https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1/render.js) and should always be embedded using __@v1__ tag in production, as shown below:
 
 ```HTML
 <script src="https://cdn.jsdelivr.net/gh/pewaginternational/issuu-shopware-pdf-embed@v1/render.js"></script>
@@ -42,7 +48,7 @@ git tag -f v1
 git push origin v1 --force
 ```
 
-__Move to specific commit:__ 
+__Move to specific commit (useful for rollbacks):__ 
 ```bash
 git tag -f v1 <commit_hash>
 git push origin v1 --force
