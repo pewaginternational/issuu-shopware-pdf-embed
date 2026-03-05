@@ -1,4 +1,8 @@
-console.log("render.js running");
+/*--------
+/ v1.0.5
+--------*/
+
+//console.log("render.js running");
 
 /*-------------
 / RENDER LOGIC
