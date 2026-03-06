@@ -56,7 +56,7 @@ Ideally, the long term implementation would utilise direct embedding of the scri
 
 ## Languages
 
-To keep the element headline in line with the current language structure, an automated language logic has been implemented at the __HEADLINE__ section of [render.js](render.js). To edit the language info simply update the array stored in __const headlineLocalization__ (see Example structure below).
+To keep the element headline in line with the current language structure, an automated language logic has been implemented at the __HEADLINE__ section of [render.js](render.js). To edit the language info simply update the array stored in __const headlineLocalization__ in __renderHeadline__ function (see Example structure below).
 
 ### Example structure
 
